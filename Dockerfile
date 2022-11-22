@@ -1,5 +1,5 @@
 FROM python:3.9-alpine3.13
-LABEL maintainer = "amanjhaNOW"
+LABEL maintainer="amanjhaNOW"
 
 ENV PYTHONUNBUFFERED 1
 
@@ -9,11 +9,11 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-ARG DEV = false
+ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
-    if [ $DEV = "true"] \
+    if [ $DEV = "true"]; \
         then /py/bin/pip install -r requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
